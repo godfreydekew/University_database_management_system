@@ -60,17 +60,17 @@ class Instructor:
         self.entry_sal.grid(row=3, column=1, padx=10, pady=10)
 
         button_fg_color = "white"
-        self.btn_insert = tk.Button(self.frame, text="Insert Instructors", command=self.insert_instructor,bg=buttons_bg_color,
+        self.btn_insert = tk.Button(self.frame, text="Insert Instructor", command=self.insert_instructor,bg=buttons_bg_color,
                                     fg=button_fg_color, relief=tk.GROOVE, bd=2, padx=10, pady=5, borderwidth=7,
                                     highlightthickness=0, cursor="hand2")
         self.btn_insert.grid(row=4, column=0, columnspan=2, pady=10)
 
-        self.btn_search = tk.Button(self.frame, text="Search Instructors", command=self.search_instructor, bg=buttons_bg_color,
+        self.btn_search = tk.Button(self.frame, text="Search Instructor", command=self.search_instructor, bg=buttons_bg_color,
                                     fg=button_fg_color, relief=tk.GROOVE, bd=2, padx=10, pady=5, borderwidth=7,
                                     highlightthickness=0, cursor="hand2")
         self.btn_search.grid(row=5, column=0, columnspan=2, pady=10)
 
-        self.btn_delete = tk.Button(self.frame, text="Delete Instructors", command=self.delete_instructor, bg=buttons_bg_color,
+        self.btn_delete = tk.Button(self.frame, text="Delete Instructor", command=self.delete_instructor, bg=buttons_bg_color,
                                     fg=button_fg_color, relief=tk.GROOVE, bd=2, padx=10, pady=5, borderwidth=7,
                                     highlightthickness=0, cursor="hand2")
         self.btn_delete.grid(row=6, column=0, columnspan=2, pady=10)
