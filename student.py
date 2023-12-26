@@ -113,36 +113,6 @@ class StudentManagementApp:
         if not student_id:
             messagebox.showerror("Error", "Student ID cannot be empty.")
             return
-        if not student_id.isdigit() or len(student_id) != 5 or int(student_id) < 0:
-            messagebox.showerror("Error", "Student ID must be a positive 5-digit numeric value.")
-            return
-
-            # Validate student name
-        if not student_name:
-            messagebox.showerror("Error", "Student name cannot be empty.")
-            return
-
-            # Validate department name
-        if not dept_name:
-            messagebox.showerror("Error", "Department name cannot be empty.")
-            return
-
-            # Validate total credits
-        if not tot_cred:
-            messagebox.showerror("Error", "Total credits cannot be empty.")
-            return
-        if not tot_cred.replace('.', '').isdigit() or not (0 <= float(tot_cred) <= 9999):
-            messagebox.showerror("Error", "Total credits must be a non-negative numeric value with at most 4 digits.")
-            return
-
-
-        # Check if the department exists
-        self.cursor.execute("SELECT * FROM department WHERE dept_name=?", (dept_name,))
-        existing_dept = self.cursor.fetchone()
-
-        if not existing_dept:
-            messagebox.showerror("Error", "Department does not exist. Please choose a valid department.")
-            return
 
         # Check if the student ID already exists
         self.cursor.execute("SELECT * FROM student WHERE ID=?", (student_id,))
@@ -151,6 +121,37 @@ class StudentManagementApp:
         if existing_student:
             messagebox.showerror("Error", "Student with the given ID already exists. Please choose a different ID.")
         else:
+            if not student_id.isdigit() or len(student_id) != 5 or int(student_id) < 0:
+                messagebox.showerror("Error", "Student ID must be a positive 5-digit numeric value.")
+                return
+
+                # Validate student name
+            if not student_name:
+                messagebox.showerror("Error", "Student name cannot be empty.")
+                return
+
+                # Validate department name
+            if not dept_name:
+                messagebox.showerror("Error", "Department name cannot be empty.")
+                return
+            self.cursor.execute("SELECT * FROM department WHERE dept_name=?", (dept_name,))
+            existing_dept = self.cursor.fetchone()
+
+            if not existing_dept:
+                messagebox.showerror("Error", "Department does not exist. Please choose a valid department.")
+                return
+
+                # Validate total credits
+            if not tot_cred:
+                messagebox.showerror("Error", "Total credits cannot be empty.")
+                return
+            if not tot_cred.replace('.', '').isdigit() or not (0 <= float(tot_cred) <= 9999):
+                messagebox.showerror("Error",
+                                     "Total credits must be a non-negative numeric value with at most 4 digits.")
+                return
+
+            # Check if the department exists
+
             # Insert the new student
             self.cursor.execute("INSERT INTO student VALUES (?, ?, ?, ?)",
                                 (student_id, student_name, dept_name, tot_cred))

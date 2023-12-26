@@ -13,8 +13,8 @@ def w_close():
         root.destroy()
 
 root = tk.Tk()
-root.title("Student Management System")
-
+root.title("University Management System")
+root.iconbitmap('icons/eul.ico')
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
@@ -96,14 +96,18 @@ def open_instructor():
     open_app(Instructor)
 
 
+buttons_bg_color = "#4B527E"
+button_fg_color = "white"
 
-main_frame = tk.Frame(root, bg="#3498db")  # Frame to hold the buttons
+main_frame = tk.Frame(root)  # Frame to hold the buttons
 main_frame.grid(row=1, column=0, padx=50, pady=50)
 
-welcome_label = tk.Label(root, text="WELCOME TO THE UNIVERSITY MANAGEMENT SYSTEM \n PRESS ANY BUTTON TO LOGIN", font=("Arial", 14), bg="#3498db", fg="white")
+welcome_label = tk.Label(root, text="WELCOME TO THE UNIVERSITY MANAGEMENT SYSTEM \n PRESS ANY BUTTON TO LOGIN", font=("Arial", 14), bg=buttons_bg_color,
+                                    fg=button_fg_color, relief=tk.GROOVE, bd=7, padx=10, pady=5, borderwidth=7,
+                                    highlightthickness=0, cursor="hand2")
 welcome_label.grid(row=0, column=0, pady=20)
 
-btn_insert = tk.Button(main_frame, text="Student", command=open_student_management, bg="#8e44ad", fg="white", padx=20, pady=5, width=20)
+btn_insert = tk.Button(main_frame, text="Student", command=open_student_management,bg="#8e44ad", fg="white", padx=20, pady=5, width=20)
 btn_insert.grid(row=0, column=0, pady=10)
 
 btn_search = tk.Button(main_frame, text="Course", command=open_course, bg="#8e44ad", fg="white", padx=20, pady=5, width=20)
