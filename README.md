@@ -40,32 +40,8 @@ The application is built using Python and Tkinter, ensuring an intuitive graphic
 2. Use the buttons on the main menu to navigate to the respective management pages (e.g., Students, Departments, Courses, Instructors).
 3. Follow the instructions displayed in pop-up messages on each page to perform the desired operations.
 
-## Screenshots
-### Main Page
-![alt text](images/homepage.png)
-
-### Single Page
-![alt text](images/singlepage.png)
-
 ## Dependencies
 - Python 3.x
 - Tkinter (pre-installed with Python)
 
-## Project Structure
-```
-project-root/
-├── main.py          # Entry point of the application
-├── requirements.txt # Required dependencies
-├── student.py       # Module for student management
-├── department.py    # Module for department management
-├── course.py        # Module for course management
-├── instructor.py    # Module for instructor management
-├── icons/           # Directory for application icons
-├── images/          # Directory for background and UI images
-```
-
-
-## Author
-Godfrey Dekera  
-dekewgodfrey@gmail.com
 
